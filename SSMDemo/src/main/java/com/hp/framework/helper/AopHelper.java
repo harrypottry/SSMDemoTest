@@ -83,9 +83,9 @@ public final class AopHelper {
         // 类名
         String cls = aspect.cls();
         // 如果包名与类名均不为空，则添加指定类
-        if (!pkg.equals("") && !cls.equals("")) {
+        if (!"".equals(pkg) && !"".equals(cls)) {
             targetClassSet.add(Class.forName(pkg + "." + cls));
-        } else if (!pkg.equals("")) {
+        } else if (!"".equals(pkg)) {
             // 如果包名不为空, 类名为空, 则添加该包名下所有类
             targetClassSet.addAll(ClassUtil.getClassSet(pkg));
         }
